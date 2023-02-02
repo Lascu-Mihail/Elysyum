@@ -28,7 +28,6 @@ public class UserController {
 
 
     @GetMapping("/{id}")
-
     public UserDto findById(@PathVariable long id ){
 
         User user = userService.findById(id);
@@ -36,7 +35,6 @@ public class UserController {
     }
 
     @GetMapping
-
     public List<UserDto> findAll(){
 
         return userService.findAll().stream().map
@@ -55,14 +53,13 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-
     public ResponseEntity<User> update(@PathVariable ("id") long id ,@RequestBody UserDto user){
         System.out.println("Update user ID" + id);
         return new ResponseEntity<>(userService.updateUser(id,user),HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteUser(@PathVariable("id") long id ){
+    public ResponseEntity<Object> deleteUser(@Valid @PathVariable("id") long id ){
         userService.deleteUser(id);
         System.out.println("Deleted user with id" + id);
         return ResponseEntity.ok().build();

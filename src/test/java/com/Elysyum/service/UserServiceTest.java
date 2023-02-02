@@ -17,7 +17,6 @@ class UserServiceTest extends BaseServiceTest{
         userService.save(userDto);
         assertNotNull(userDto);
 
-
     }
 
     @Test
@@ -44,7 +43,6 @@ class UserServiceTest extends BaseServiceTest{
 
         userService.deleteUser(userDto.getId());
         assertNotNull(userDto);
-
 
     }
 

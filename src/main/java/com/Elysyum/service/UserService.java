@@ -53,6 +53,7 @@ public class UserService {
 
     @Transactional
     public void deleteUser(Long id) {
+        log.info("Deleting user by id");
         userRepository.deleteById(id);
     }
 
@@ -72,6 +73,5 @@ public class UserService {
         return userRepository.save(user);
 
     }
-
 
 }
