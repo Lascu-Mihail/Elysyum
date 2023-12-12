@@ -22,7 +22,7 @@ public class BasePostTest {
                 "text ever since the 1500s, when an unknown printer took a galley " +
                 "of type and scrambled it to make a type specimen book");
         postDto.setAuthor("Jon Doe");
-        postDto.setCreatedAt(postDto.getCreatedAt());
+        postDto.setDate(postDto.getDate());
 
         postService.save(postDto);
 

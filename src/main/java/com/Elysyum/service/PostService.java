@@ -28,7 +28,7 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
-    public void save(PostDto postDto){
+    public void save(PostDto postDto) {
 
         Post post = new Post();
 
@@ -44,25 +44,25 @@ public class PostService {
     }
 
 
-    public List<Post>findAll(){
+    public List<Post> findAll() {
         log.info("Finding all posts");
         return postRepository.findAll();
     }
 
-    public Post findById(Long id){
+    public Post findById(Long id) {
         log.info("Finding post by ID");
-        return postRepository.findById(id).orElseThrow(()->
-                new ResponseStatusException(HttpStatus.NOT_FOUND , "User with id " + id + " not found"));
+        return postRepository.findById(id).orElseThrow(() ->
+                new ResponseStatusException(HttpStatus.NOT_FOUND, "User with id " + id + " not found"));
     }
 
     @Transactional
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         log.info("Deleting post by id");
         postRepository.deleteById(id);
 
     }
 
-    public  Post updatePost (Long postId , PostDto postDetails){
+    public Post updatePost(Long postId, PostDto postDetails) {
 
         Post post = postRepository.findById(postId).get();
         post.setTitle(postDetails.getTitle());
@@ -70,10 +70,10 @@ public class PostService {
         post.setAuthor(postDetails.getAuthor());
         post.setDate(postDetails.getDate());
 
-       return postRepository.save(post);
+        return postRepository.save(post);
     }
 
-    public boolean findByTitle(String title){
+    public boolean findByTitle(String title) {
 
         return postRepository.findByTitle(title).isPresent();
     }
